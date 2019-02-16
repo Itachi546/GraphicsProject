@@ -7,20 +7,20 @@ class Shader;
 
 struct VertexData{
   vec3 position;
+  vec3 normal;
   VertexData(){}
-  VertexData(vec3 position){
+  VertexData(vec3 position, vec3 normal){
     this->position = position;
+    this->normal = normal;
   }
 };
 
 class Grid{
 
- private:
-  void InitBuffers();
  public:
   ~Grid();
   Grid();
-  void Init(unsigned int dims = 1);
+  void Init();
   void Destroy();
   void Render(); 
 
@@ -28,9 +28,17 @@ class Grid{
   unsigned int m_numIndices;
 
  private:
-  unsigned int m_dims;
+  void InitBuffers();
+  void LoadHeightMap(const char* filename);
+  float GetHeight(int i, int j);
+
+  int m_terrainWidth;
+  int m_terrainHeight;
+
+  unsigned int m_offset;
   unsigned int m_vbo, m_ebo;
-  const unsigned int m_numVertices = 2;
+  unsigned int m_numVertices;
+  unsigned char* m_heightMap;
 };
 
 #endif

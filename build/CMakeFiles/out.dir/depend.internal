@@ -3,9 +3,11 @@
 
 CMakeFiles/out.dir/src/Grid.cpp.obj
  ../3rdParty/include/GL/glew.h
+ ../3rdParty/include/SOIL/SOIL.h
  C:/Users/Itachi/Desktop/GraphicsProject/src/Grid.cpp
  C:/Users/Itachi/Desktop/GraphicsProject/src/Grid.h
  C:/Users/Itachi/Desktop/GraphicsProject/src/Math/vec.h
+ C:/Users/Itachi/Desktop/GraphicsProject/src/Texture.h
 CMakeFiles/out.dir/src/Input.cpp.obj
  C:/Users/Itachi/Desktop/GraphicsProject/src/Input.cpp
  C:/Users/Itachi/Desktop/GraphicsProject/src/Input.h

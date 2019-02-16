@@ -1,3 +1,4 @@
+
 #include "Shader.h"
 #include "Grid.h"
 #include "Input.h"
@@ -45,26 +46,40 @@ int main(){
   Grid grid;
   grid.Init();
 
-  glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+  //   glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
   mat4 projection = mat4::perspective(45.0f, 4.0f/3.0f, 0.1f, 1000.0f);
   mat4 view = mat4::lookAt(vec3(0.0f, 1.0f, -4.0f), vec3(0.0f, 0.0f, 1.0f), vec3(0.0f, 1.0f, 0.0f));
+  vec3 translate = vec3(0.0f);
 
   while(!glfwWindowShouldClose(window)){
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    
     glfwPollEvents();
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    if(Input::IsKeyPressed(GLFW_KEY_SPACE)){
-      std::cout << "Pressed" << std::endl;
-    }
-
-    float angle = float(glfwGetTime()) * 40.0f;
-    mat4 model = mat4::rotateY(angle);
+    mat4 model = mat4::translate(translate);
     shader.Use();
     shader.LoadMat("projection", projection);
     shader.LoadMat("model", model);
     shader.LoadMat("view", view);
     grid.Render();
     shader.Unuse();
+
+    const float speed = 0.1f;
+    if(Input::IsKeyPressed(GLFW_KEY_ESCAPE))
+      break;
+    if(Input::IsKeyHeld(GLFW_KEY_UP))
+      translate.z -= speed;
+    else if(Input::IsKeyHeld(GLFW_KEY_DOWN))
+      translate.z +=speed;
+    if(Input::IsKeyHeld(GLFW_KEY_LEFT))
+      translate.x -= speed;
+    else if(Input::IsKeyHeld(GLFW_KEY_RIGHT))
+      translate.x +=speed;
+    if(Input::IsKeyHeld(GLFW_KEY_A))
+      translate.y += speed;
+    else if(Input::IsKeyHeld(GLFW_KEY_Q))
+      translate.y -=speed;
+
     glfwSwapBuffers(window);
     Input::Update();  
   }

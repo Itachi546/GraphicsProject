@@ -60,7 +60,7 @@ struct mat4{
   static mat4 perspective(float fov, float aspect, float near, float far){
     fov = fov / 2.0f;
     float s = 1.0f / tan(fov * DEG2RAD);
-    float invDenom = 1.0f / (far - near);
+    float invDenom = 1.0f / (near - far);
 
     mat4 m;
     m[0][0] = s / aspect;

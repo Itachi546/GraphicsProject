@@ -10,6 +10,6 @@ uniform mat4 view;
 out vec3 Normal;
 
 void main(){
-     gl_Position = projection * view * model * vec4(position, 1.0);
+     gl_Position = projection * view *  model * vec4(position.x, position.y  , position.z, 1.0);
      Normal = normal;
 }
