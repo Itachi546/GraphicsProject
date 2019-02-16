@@ -3,9 +3,12 @@
 
 CMakeFiles\out.dir\src\Grid.cpp.obj: ..\3rdParty\include\GL\glew.h
 CMakeFiles\out.dir\src\Grid.cpp.obj: ..\3rdParty\include\SOIL\SOIL.h
+CMakeFiles\out.dir\src\Grid.cpp.obj: ..\src\Math\mat.h
+CMakeFiles\out.dir\src\Grid.cpp.obj: ..\src\Math\vec.h
 CMakeFiles\out.dir\src\Grid.cpp.obj: ..\src\Grid.cpp
 CMakeFiles\out.dir\src\Grid.cpp.obj: ..\src\Grid.h
 CMakeFiles\out.dir\src\Grid.cpp.obj: ..\src\Math\vec.h
+CMakeFiles\out.dir\src\Grid.cpp.obj: ..\src\Shader.h
 CMakeFiles\out.dir\src\Grid.cpp.obj: ..\src\Texture.h
 
 CMakeFiles\out.dir\src\Input.cpp.obj: ..\src\Input.cpp

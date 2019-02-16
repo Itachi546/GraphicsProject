@@ -24,6 +24,18 @@ GL/glu.h
 
 ../3rdParty/include/SOIL/SOIL.h
 
+../src/Math/mat.h
+vec.h
+../src/Math/vec.h
+
+../src/Math/vec.h
+cmath
+-
+cassert
+-
+iostream
+-
+
 C:/Users/Itachi/Desktop/GraphicsProject/src/Grid.cpp
 Grid.h
 C:/Users/Itachi/Desktop/GraphicsProject/src/Grid.h
@@ -35,8 +47,14 @@ fstream
 -
 Texture.h
 C:/Users/Itachi/Desktop/GraphicsProject/src/Texture.h
+Shader.h
+C:/Users/Itachi/Desktop/GraphicsProject/src/Shader.h
+mat.h
+C:/Users/Itachi/Desktop/GraphicsProject/src/mat.h
 
 C:/Users/Itachi/Desktop/GraphicsProject/src/Grid.h
+Shader.h
+C:/Users/Itachi/Desktop/GraphicsProject/src/Shader.h
 Math/vec.h
 C:/Users/Itachi/Desktop/GraphicsProject/src/Math/vec.h
 
@@ -48,7 +66,15 @@ cassert
 iostream
 -
 
+C:/Users/Itachi/Desktop/GraphicsProject/src/Shader.h
+GL/glew.h
+-
+string
+-
+
 C:/Users/Itachi/Desktop/GraphicsProject/src/Texture.h
+iostream
+-
 SOIL/SOIL.h
 -
 
