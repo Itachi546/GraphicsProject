@@ -1,0 +1,8 @@
+heightScale 130.0
+gridScale 1.0
+heightmap ../Assets/Textures/output.bmp
+splatmap ../Assets/Textures/splatmap1.png
+grassTexture ../Assets/Textures/grass.png
+dirtTexture ../Assets/Textures/dirt.jpg
+rockTexture ../Assets/Textures/rock.png
+

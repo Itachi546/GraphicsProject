@@ -1,5 +1,3 @@
-
-#include "Shader.h"
 #include "Grid.h"
 #include "Input.h"
 
@@ -40,30 +38,19 @@ int main(){
   if(!glewInit()) glewInit();
   glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
   glEnable(GL_DEPTH_TEST);
+  glEnable(GL_CULL_FACE);
+  glCullFace(GL_CW);
 
-  Shader shader;
-  shader.InitShader("../Shaders/mesh.vert", "../Shaders/mesh.frag");
+
   Grid grid;
   grid.Init();
-
-  //   glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-  mat4 projection = mat4::perspective(45.0f, 4.0f/3.0f, 0.1f, 1000.0f);
-  mat4 view = mat4::lookAt(vec3(0.0f, 1.0f, -4.0f), vec3(0.0f, 0.0f, 1.0f), vec3(0.0f, 1.0f, 0.0f));
   vec3 translate = vec3(0.0f);
-
   while(!glfwWindowShouldClose(window)){
     
     glfwPollEvents();
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-    mat4 model = mat4::translate(translate);
-    shader.Use();
-    shader.LoadMat("projection", projection);
-    shader.LoadMat("model", model);
-    shader.LoadMat("view", view);
-    grid.Render();
-    shader.Unuse();
-
+    mat4 view = mat4::lookAt(vec3(0.0f, 1.0f, -4.0f), vec3(0.0f, 0.0f, 1.0f), vec3(0.0f, 1.0f, 0.0f));
+    grid.Render(view, translate);
     const float speed = 0.1f;
     if(Input::IsKeyPressed(GLFW_KEY_ESCAPE))
       break;
