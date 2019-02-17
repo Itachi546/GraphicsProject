@@ -132,6 +132,24 @@ struct mat4{
     return m;
   }
 
+  static mat4 rotate(vec3 angle){
+    mat4 x = rotateX(angle.x);
+    mat4 y = rotateY(angle.y);
+    mat4 z = rotateZ(angle.z);
+
+    return y * z * x;
+  }
+
+  //scale
+  static mat4 scale(vec3 val){
+    mat4 m;
+    m[0][0] = val.x;
+    m[1][1] = val.y;
+    m[2][2] = val.z;
+
+    return m;
+  }
+
   //view transform with respect to camera
   static mat4 lookAt(vec3 eye, vec3 target, vec3 up){
     vec3 f = vec3::normalize(eye - target);

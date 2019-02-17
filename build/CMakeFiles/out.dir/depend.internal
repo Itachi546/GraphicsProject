@@ -3,11 +3,14 @@
 
 CMakeFiles/out.dir/src/Grid.cpp.obj
  ../3rdParty/include/GL/glew.h
+ ../3rdParty/include/GLFW/glfw3.h
  ../3rdParty/include/SOIL/SOIL.h
  ../src/Math/mat.h
  ../src/Math/vec.h
+ C:/Users/Itachi/Desktop/GraphicsProject/src/Camera.h
  C:/Users/Itachi/Desktop/GraphicsProject/src/Grid.cpp
  C:/Users/Itachi/Desktop/GraphicsProject/src/Grid.h
+ C:/Users/Itachi/Desktop/GraphicsProject/src/Input.h
  C:/Users/Itachi/Desktop/GraphicsProject/src/Math/vec.h
  C:/Users/Itachi/Desktop/GraphicsProject/src/Shader.h
  C:/Users/Itachi/Desktop/GraphicsProject/src/Texture.h
@@ -17,6 +20,9 @@ CMakeFiles/out.dir/src/Input.cpp.obj
 CMakeFiles/out.dir/src/Main.cpp.obj
  ../3rdParty/include/GL/glew.h
  ../3rdParty/include/GLFW/glfw3.h
+ ../src/Math/mat.h
+ ../src/Math/vec.h
+ C:/Users/Itachi/Desktop/GraphicsProject/src/Camera.h
  C:/Users/Itachi/Desktop/GraphicsProject/src/Grid.h
  C:/Users/Itachi/Desktop/GraphicsProject/src/Input.h
  C:/Users/Itachi/Desktop/GraphicsProject/src/Main.cpp

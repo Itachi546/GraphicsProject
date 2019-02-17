@@ -1,10 +1,12 @@
 #include "Grid.h"
+#include "Camera.h"
+#include "Texture.h"
+#include "mat.h"
+
 #include <GL/glew.h>
 #include <vector>
 #include <fstream>
-#include "Texture.h"
-#include "Shader.h"
-#include "mat.h"
+
 
 Grid::Grid(){
   m_numIndices = 0;
@@ -14,10 +16,21 @@ float Grid::GetHeight(int i, int j){
   if(i < 0 || j < 0) return 0.0f;
   return (m_heightMap[j * m_terrainWidth +  i] / 255.0f) * heightScale;
 }
+/*
+float Grid::GetHeight(float x, float z){
+  float halfDims = m_terrainWidth * gridScale;
+  if(abs(x) > halfDims || abs(z) > halfDims) return 0.0f;
+  x += halfDims;
+  z += halfDims;
 
+  return GetHeight(int(x), int(z));
+}
+*/
 void Grid::InitBuffers(){
   std::vector<VertexData> vertices;
   std::vector<GLuint> indices;
+  std::vector<vec3> grassPosition;
+
   float halfDims = m_terrainWidth * gridScale;
   int k = 0;
   for(unsigned int j = 0; j < m_numVertices; ++j){
@@ -30,17 +43,22 @@ void Grid::InitBuffers(){
       //generate coordinate 
       float x = texCoord.x * 2.0f - 1.0f;
       float z = texCoord.y * 2.0f - 1.0f;
+
+      vec3 pos = vec3(x* halfDims, 0.0f, z * halfDims);
+      
       int xIndex = k % m_numVertices;
       int yIndex = int(k / m_numVertices);
-      float y = GetHeight(xIndex, yIndex);
+      pos.y = GetHeight(xIndex, yIndex);
+      if(pos.y < 30.0f)
+	grassPosition.push_back(pos);
 
-      vertices.push_back(VertexData(vec3(x * halfDims, y, z * halfDims), vec3(0.0f, 1.0f, 0.0), texCoord));
+      vertices.push_back(VertexData(pos, vec3(0.0f, 1.0f, 0.0), texCoord));
 
       //increase the counter by the offset or pixel channel
       k += m_offset;
     }
   }
-
+  
   for(unsigned int i = 0; i < m_numVertices-1; ++i){
     for(unsigned int j = 0; j < m_numVertices-1; ++j){
       int i0 = i * (m_numVertices) + j;
@@ -64,10 +82,11 @@ void Grid::InitBuffers(){
     }
   }
 
+  m_numGrass = grassPosition.size();
+  
+  glGenVertexArrays(1, &m_vao);
   glGenBuffers(1, &m_vbo);
   glGenBuffers(1, &m_ebo);
-  glGenVertexArrays(1, &m_vao);
-
   glBindVertexArray(m_vao);
   glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
   glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(VertexData), &vertices[0], GL_STATIC_DRAW);
@@ -82,12 +101,48 @@ void Grid::InitBuffers(){
   glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(VertexData), (void *)offsetof(VertexData, texCoord));
   glBindBuffer(GL_ARRAY_BUFFER, 0);
   glBindVertexArray(0);
+
   m_numIndices = indices.size();
+
+  vec2 grassVertices[] = {
+    vec2(0.0, 0.0),
+    vec2(1.0, 0.0),
+    vec2(1.0, 1.0),
+    vec2(0.0, 1.0),
+  };
+  GLuint grassIndices[] = {
+    0, 1, 2, 0, 2, 3
+  };
+
+  glGenBuffers(1, &m_grassVBO);
+  glGenBuffers(1, &m_grassEBO);
+  glGenBuffers(1, &m_grassPBO);
+  glGenVertexArrays(1, &m_grassVAO);
+  glBindVertexArray(m_grassVAO);
+
+  glBindBuffer(GL_ARRAY_BUFFER, m_grassVBO);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(vec2) * 6, &grassVertices[0], GL_STATIC_DRAW);
+  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_grassEBO);
+  glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint) * 6, &grassIndices, GL_STATIC_DRAW);
+
+  glEnableVertexAttribArray(0);
+  glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, 0);
+
+  glBindBuffer(GL_ARRAY_BUFFER, m_grassPBO);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(vec3) * grassPosition.size(), &grassPosition[0], GL_STATIC_DRAW);
+  
+  glEnableVertexAttribArray(1);
+  glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, 0);
+  glVertexAttribDivisor(1, 1);
+
+  glBindVertexArray(0);
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+  m_numGrassVertices = 6;
 }
 
 void Grid::Init(){
   shader.InitShader("../Shaders/mesh.vert", "../Shaders/mesh.frag");
-
+  grassShader.InitShader("../Shaders/grass.vert", "../Shaders/grass.frag");
 
   //Load config file
   std::ifstream infile("../Assets/terrain.txt");
@@ -114,26 +169,26 @@ void Grid::Init(){
       rockTexture = Texture::LoadTexture(text.c_str());
     else if(prefix == "heightScale")
       heightScale = std::stof(text);
+    else if(prefix == "grassPackTexture"){
+      grassPackTexture = Texture::LoadTexture(text.c_str());
+    }
     else if(prefix == "gridScale")
       gridScale = std::stof(text);
+
   }
 
+  
   //Initialize buffer
   m_numVertices = 256;
   InitBuffers();
 
-
   //Shader uniform initialization
   shader.Use();
-  mat4 projection = mat4::perspective(45.0f, 4.0f/3.0f, 0.1f, 1000.0f);
-  shader.LoadMat("projection", projection);
   shader.LoadInt("splatmap", 0);
   shader.LoadInt("grassTexture", 1);
   shader.LoadInt("dirtTexture", 2);
   shader.LoadInt("rockTexture", 3);
   shader.Unuse();
-
-
 }
 
 void Grid::Destroy(){
@@ -148,11 +203,12 @@ void Grid::Destroy(){
   glDeleteBuffers(1, &m_ebo);
 }
 
-void Grid::Render(mat4& view, vec3& translate){
-  shader.Use();  
-  mat4 model = mat4::translate(translate);
-  shader.LoadMat("model", model);
-  shader.LoadMat("view", view);
+void Grid::Render(Camera& camera){
+
+  shader.Use();
+  shader.LoadMat("projection", camera.GetProjection());
+  shader.LoadMat("model", mat4());
+  shader.LoadMat("view", camera.GetViewMatrix());
   glBindVertexArray(m_vao);
 
   glActiveTexture(GL_TEXTURE0);
@@ -171,6 +227,21 @@ void Grid::Render(mat4& view, vec3& translate){
   glBindVertexArray(0);
   glBindTexture(GL_TEXTURE_2D, 0);
   shader.Unuse();
+
+  grassShader.Use();
+  glEnable(GL_BLEND);
+  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+  grassShader.LoadMat("projection", camera.GetProjection());
+  grassShader.LoadMat("model", mat4::scale(vec3(1.0f, 4.0f, 0.0f)));
+  grassShader.LoadMat("view", camera.GetViewMatrix());
+  glActiveTexture(GL_TEXTURE0);
+  glBindTexture(GL_TEXTURE_2D, grassPackTexture);
+  glBindVertexArray(m_grassVAO);
+  glDrawElementsInstanced(GL_TRIANGLES, m_numGrassVertices, GL_UNSIGNED_INT, 0, m_numGrass);
+  glBindVertexArray(0);
+  glBindTexture(GL_TEXTURE_2D, 0);
+  glDisable(GL_BLEND);
+  grassShader.Unuse();
 }
 
 

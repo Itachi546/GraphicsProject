@@ -1,5 +1,5 @@
 #include "Grid.h"
-#include "Input.h"
+#include "Camera.h"
 
 #include "Math/vec.h"
 #include "Math/mat.h"
@@ -41,31 +41,56 @@ int main(){
   glEnable(GL_CULL_FACE);
   glCullFace(GL_CW);
 
+  Camera camera;
+  camera.Init(vec3(0.0f, 2.0f, - 3.0f), vec3(0.0f, 0.0f, 1.0f));
+  camera.SetProjection(45.0f, float(WINDOW_WIDTH) / WINDOW_HEIGHT);
 
   Grid grid;
   grid.Init();
-  vec3 translate = vec3(0.0f);
+
+  bool wireframe = false;
+
   while(!glfwWindowShouldClose(window)){
     
     glfwPollEvents();
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     mat4 view = mat4::lookAt(vec3(0.0f, 1.0f, -4.0f), vec3(0.0f, 0.0f, 1.0f), vec3(0.0f, 1.0f, 0.0f));
-    grid.Render(view, translate);
-    const float speed = 0.1f;
+
+    if(wireframe)
+      glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    else
+      glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    
+    camera.Update();
+    grid.Render(camera);
+    
     if(Input::IsKeyPressed(GLFW_KEY_ESCAPE))
       break;
+
+    const float speed = 0.1f;
+    vec3 position = camera.GetPosition();
     if(Input::IsKeyHeld(GLFW_KEY_UP))
-      translate.z -= speed;
+      position.z -= speed;
     else if(Input::IsKeyHeld(GLFW_KEY_DOWN))
-      translate.z +=speed;
+      position.z +=speed;
     if(Input::IsKeyHeld(GLFW_KEY_LEFT))
-      translate.x -= speed;
+      position.x -= speed;
     else if(Input::IsKeyHeld(GLFW_KEY_RIGHT))
-      translate.x +=speed;
+      position.x +=speed;
     if(Input::IsKeyHeld(GLFW_KEY_A))
-      translate.y += speed;
+      position.y -= speed;
     else if(Input::IsKeyHeld(GLFW_KEY_Q))
-      translate.y -=speed;
+      position.y +=speed;
+    if(Input::IsKeyPressed(GLFW_KEY_F2))
+      wireframe = !wireframe;
+    if(Input::IsKeyHeld(GLFW_KEY_P))
+      camera.IncreaseRotation(vec3(0.0f, 0.1f, 0.0f));
+    else if(Input::IsKeyHeld(GLFW_KEY_O))
+      camera.IncreaseRotation(vec3(0.0f, -0.1f, 0.0f));
+
+
+    
+    camera.SetPosition(position);
 
     glfwSwapBuffers(window);
     Input::Update();  

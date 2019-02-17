@@ -4,5 +4,5 @@ heightmap ../Assets/Textures/output.bmp
 splatmap ../Assets/Textures/splatmap1.png
 grassTexture ../Assets/Textures/grass.png
 dirtTexture ../Assets/Textures/dirt.jpg
-rockTexture ../Assets/Textures/rock.png
-
+rockTexture ../Assets/Textures/rock.jpg
+grassPackTexture ../Assets/Textures/grass.dds
