@@ -232,6 +232,33 @@ src\Shader.cpp.s:
 	$(MAKE) -f CMakeFiles\out.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\out.dir\src\Shader.cpp.s
 .PHONY : src\Shader.cpp.s
 
+src\Time.obj: src\Time.cpp.obj
+
+.PHONY : src\Time.obj
+
+# target to build an object file
+src\Time.cpp.obj:
+	$(MAKE) -f CMakeFiles\out.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\out.dir\src\Time.cpp.obj
+.PHONY : src\Time.cpp.obj
+
+src\Time.i: src\Time.cpp.i
+
+.PHONY : src\Time.i
+
+# target to preprocess a source file
+src\Time.cpp.i:
+	$(MAKE) -f CMakeFiles\out.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\out.dir\src\Time.cpp.i
+.PHONY : src\Time.cpp.i
+
+src\Time.s: src\Time.cpp.s
+
+.PHONY : src\Time.s
+
+# target to generate assembly for a file
+src\Time.cpp.s:
+	$(MAKE) -f CMakeFiles\out.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\out.dir\src\Time.cpp.s
+.PHONY : src\Time.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -253,6 +280,9 @@ help:
 	@echo ... src/Shader.obj
 	@echo ... src/Shader.i
 	@echo ... src/Shader.s
+	@echo ... src/Time.obj
+	@echo ... src/Time.i
+	@echo ... src/Time.s
 .PHONY : help
 
 

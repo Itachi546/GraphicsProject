@@ -153,6 +153,9 @@ struct vec3{
     return vec3(x * v, y * v, z * v);
   }
 
+  friend vec3 operator*(float val, vec3 v){
+    return v * val;
+  }
   vec3 operator/(float v){
     //@Note maybe need to check for divide by zero
     return vec3(x / v, y / v, z / v);

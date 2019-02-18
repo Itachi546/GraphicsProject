@@ -44,6 +44,14 @@ struct mat4{
 
     return res;
   }
+
+  vec4 operator*(vec4 rhs){
+    vec4 res;
+    for(int i = 0; i < 4; ++i){
+      res[i] = m[i][0] * rhs.x + m[i][1] * rhs.y + m[i][2] * rhs.z + m[i][3] * rhs.w;
+    }
+    return res;
+  }
   
   //indexing operator overloading for index operation
   vec4& operator[](const std::size_t index){

@@ -115,9 +115,28 @@ CMakeFiles\out.dir\src\Grid.cpp.s: cmake_force
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\out.dir\src\Grid.cpp.s /c C:\Users\Itachi\Desktop\GraphicsProject\src\Grid.cpp
 <<
 
+CMakeFiles\out.dir\src\Time.cpp.obj: CMakeFiles\out.dir\flags.make
+CMakeFiles\out.dir\src\Time.cpp.obj: ..\src\Time.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Itachi\Desktop\GraphicsProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/out.dir/src/Time.cpp.obj"
+	C:\PROGRA~2\MICROS~1\2017\COMMUN~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\out.dir\src\Time.cpp.obj /FdCMakeFiles\out.dir\ /FS -c C:\Users\Itachi\Desktop\GraphicsProject\src\Time.cpp
+<<
+
+CMakeFiles\out.dir\src\Time.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/out.dir/src/Time.cpp.i"
+	C:\PROGRA~2\MICROS~1\2017\COMMUN~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\out.dir\src\Time.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Itachi\Desktop\GraphicsProject\src\Time.cpp
+<<
+
+CMakeFiles\out.dir\src\Time.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/out.dir/src/Time.cpp.s"
+	C:\PROGRA~2\MICROS~1\2017\COMMUN~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\out.dir\src\Time.cpp.s /c C:\Users\Itachi\Desktop\GraphicsProject\src\Time.cpp
+<<
+
 CMakeFiles\out.dir\src\Main.cpp.obj: CMakeFiles\out.dir\flags.make
 CMakeFiles\out.dir\src\Main.cpp.obj: ..\src\Main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Itachi\Desktop\GraphicsProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/out.dir/src/Main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Itachi\Desktop\GraphicsProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/out.dir/src/Main.cpp.obj"
 	C:\PROGRA~2\MICROS~1\2017\COMMUN~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\out.dir\src\Main.cpp.obj /FdCMakeFiles\out.dir\ /FS -c C:\Users\Itachi\Desktop\GraphicsProject\src\Main.cpp
 <<
@@ -139,6 +158,7 @@ out_OBJECTS = \
 "CMakeFiles\out.dir\src\Shader.cpp.obj" \
 "CMakeFiles\out.dir\src\Input.cpp.obj" \
 "CMakeFiles\out.dir\src\Grid.cpp.obj" \
+"CMakeFiles\out.dir\src\Time.cpp.obj" \
 "CMakeFiles\out.dir\src\Main.cpp.obj"
 
 # External object files for target out
@@ -147,10 +167,11 @@ out_EXTERNAL_OBJECTS =
 out.exe: CMakeFiles\out.dir\src\Shader.cpp.obj
 out.exe: CMakeFiles\out.dir\src\Input.cpp.obj
 out.exe: CMakeFiles\out.dir\src\Grid.cpp.obj
+out.exe: CMakeFiles\out.dir\src\Time.cpp.obj
 out.exe: CMakeFiles\out.dir\src\Main.cpp.obj
 out.exe: CMakeFiles\out.dir\build.make
 out.exe: CMakeFiles\out.dir\objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Itachi\Desktop\GraphicsProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable out.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Itachi\Desktop\GraphicsProject\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable out.exe"
 	"C:\Program Files\CMake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\out.dir --manifests  -- C:\PROGRA~2\MICROS~1\2017\COMMUN~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\out.dir\objects1.rsp @<<
  /out:out.exe /implib:out.lib /pdb:C:\Users\Itachi\Desktop\GraphicsProject\build\out.pdb /version:0.0  /machine:X86 /debug /INCREMENTAL /subsystem:console  -LIBPATH:C:\Users\Itachi\Desktop\GraphicsProject\3rdParty\lib SOIL.lib glew32.lib opengl32.lib glfw3.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<

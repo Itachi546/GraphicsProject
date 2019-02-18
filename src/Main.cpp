@@ -1,5 +1,6 @@
 #include "Grid.h"
 #include "Camera.h"
+#include "Time.h"
 
 #include "Math/vec.h"
 #include "Math/mat.h"
@@ -29,6 +30,7 @@ void mousebutton_callback(GLFWwindow* window, int key, int action, int mod){
 
 int main(){
 
+  
   if(!glfwInit()) glfwInit();
   GLFWwindow* window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Graphics", 0, 0);
   glfwMakeContextCurrent(window);
@@ -38,8 +40,8 @@ int main(){
   if(!glewInit()) glewInit();
   glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
   glEnable(GL_DEPTH_TEST);
-  glEnable(GL_CULL_FACE);
-  glCullFace(GL_CW);
+  //  glEnable(GL_CULL_FACE);
+  //  glCullFace(GL_CW);
 
   Camera camera;
   camera.Init(vec3(0.0f, 2.0f, - 3.0f), vec3(0.0f, 0.0f, 1.0f));
@@ -67,31 +69,28 @@ int main(){
     if(Input::IsKeyPressed(GLFW_KEY_ESCAPE))
       break;
 
-    const float speed = 0.1f;
-    vec3 position = camera.GetPosition();
     if(Input::IsKeyHeld(GLFW_KEY_UP))
-      position.z -= speed;
+      camera.Walk(2.0f);
     else if(Input::IsKeyHeld(GLFW_KEY_DOWN))
-      position.z +=speed;
+      camera.Walk(-2.0f);
     if(Input::IsKeyHeld(GLFW_KEY_LEFT))
-      position.x -= speed;
+      camera.Strafe(-2.0f);
     else if(Input::IsKeyHeld(GLFW_KEY_RIGHT))
-      position.x +=speed;
+      camera.Strafe(2.0f);
     if(Input::IsKeyHeld(GLFW_KEY_A))
-      position.y -= speed;
+      camera.Lift(-2.0f);
     else if(Input::IsKeyHeld(GLFW_KEY_Q))
-      position.y +=speed;
+      camera.Lift(2.0f);
+
     if(Input::IsKeyPressed(GLFW_KEY_F2))
       wireframe = !wireframe;
+
     if(Input::IsKeyHeld(GLFW_KEY_P))
       camera.IncreaseRotation(vec3(0.0f, 0.1f, 0.0f));
     else if(Input::IsKeyHeld(GLFW_KEY_O))
       camera.IncreaseRotation(vec3(0.0f, -0.1f, 0.0f));
 
-
-    
-    camera.SetPosition(position);
-
+    Time::IncreaseElapsedTime(glfwGetTime());
     glfwSwapBuffers(window);
     Input::Update();  
   }

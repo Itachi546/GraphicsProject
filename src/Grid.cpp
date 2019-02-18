@@ -2,6 +2,7 @@
 #include "Camera.h"
 #include "Texture.h"
 #include "mat.h"
+#include "Time.h"
 
 #include <GL/glew.h>
 #include <vector>
@@ -49,7 +50,7 @@ void Grid::InitBuffers(){
       int xIndex = k % m_numVertices;
       int yIndex = int(k / m_numVertices);
       pos.y = GetHeight(xIndex, yIndex);
-      if(pos.y < 30.0f)
+      if(pos.y < 40.0f)
 	grassPosition.push_back(pos);
 
       vertices.push_back(VertexData(pos, vec3(0.0f, 1.0f, 0.0), texCoord));
@@ -105,10 +106,10 @@ void Grid::InitBuffers(){
   m_numIndices = indices.size();
 
   vec2 grassVertices[] = {
-    vec2(0.0, 0.0),
-    vec2(1.0, 0.0),
-    vec2(1.0, 1.0),
-    vec2(0.0, 1.0),
+    vec2(-0.5f, -0.5f),
+    vec2(-0.5, 0.5),
+    vec2(0.5, 0.5),
+    vec2(0.5, -0.5),
   };
   GLuint grassIndices[] = {
     0, 1, 2, 0, 2, 3
@@ -229,11 +230,15 @@ void Grid::Render(Camera& camera){
   shader.Unuse();
 
   grassShader.Use();
+
   glEnable(GL_BLEND);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
   grassShader.LoadMat("projection", camera.GetProjection());
-  grassShader.LoadMat("model", mat4::scale(vec3(1.0f, 4.0f, 0.0f)));
+  grassShader.LoadMat("model", mat4::scale(vec3(4.0f, 8.0f, 4.0f)));
   grassShader.LoadMat("view", camera.GetViewMatrix());
+  grassShader.LoadFloat("time", float(Time::GetElapsedTime()));
+
   glActiveTexture(GL_TEXTURE0);
   glBindTexture(GL_TEXTURE_2D, grassPackTexture);
   glBindVertexArray(m_grassVAO);

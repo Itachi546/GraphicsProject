@@ -13,6 +13,7 @@ add_executable(
 	src/Shader.cpp
 	src/Input.cpp
 	src/Grid.cpp
+	src/Time.cpp
 	src/Main.cpp
 )
 

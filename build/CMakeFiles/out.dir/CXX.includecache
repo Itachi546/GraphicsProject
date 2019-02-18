@@ -95,6 +95,8 @@ Texture.h
 C:/Users/Itachi/Desktop/GraphicsProject/src/Texture.h
 mat.h
 C:/Users/Itachi/Desktop/GraphicsProject/src/mat.h
+Time.h
+C:/Users/Itachi/Desktop/GraphicsProject/src/Time.h
 GL/glew.h
 -
 vector
@@ -111,26 +113,6 @@ C:/Users/Itachi/Desktop/GraphicsProject/src/Math/vec.h
 C:/Users/Itachi/Desktop/GraphicsProject/src/Input.h
 stdint.h
 -
-
-C:/Users/Itachi/Desktop/GraphicsProject/src/Main.cpp
-Grid.h
-C:/Users/Itachi/Desktop/GraphicsProject/src/Grid.h
-Camera.h
-C:/Users/Itachi/Desktop/GraphicsProject/src/Camera.h
-Math/vec.h
-C:/Users/Itachi/Desktop/GraphicsProject/src/Math/vec.h
-Math/mat.h
-C:/Users/Itachi/Desktop/GraphicsProject/src/Math/mat.h
-GL/glew.h
--
-GLFW/glfw3.h
--
-iostream
--
-
-C:/Users/Itachi/Desktop/GraphicsProject/src/Math/mat.h
-vec.h
-C:/Users/Itachi/Desktop/GraphicsProject/src/Math/vec.h
 
 C:/Users/Itachi/Desktop/GraphicsProject/src/Math/vec.h
 cmath
@@ -151,4 +133,6 @@ iostream
 -
 SOIL/SOIL.h
 -
+
+C:/Users/Itachi/Desktop/GraphicsProject/src/Time.h
 

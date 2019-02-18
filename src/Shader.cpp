@@ -7,7 +7,7 @@
 
 #define DEBUG_LOG(val)  std::cout << val << std::endl;
 
-void Shader::InitShader(const char* vertexshader, const char* fragmentshader){
+void Shader::InitShader(std::string vertexshader, std::string fragmentshader){
 
   GLuint vshaderId = glCreateShader(GL_VERTEX_SHADER);
   std::string source = LoadFromFile(vertexshader);
@@ -24,6 +24,7 @@ void Shader::InitShader(const char* vertexshader, const char* fragmentshader){
   const char* ftemp = source.c_str();
   glShaderSource(fshaderId, 1, &ftemp, NULL);
 
+  
   glCompileShader(fshaderId);
   if(!CheckStatus(fshaderId, fragmentshader)){
     DEBUG_LOG("Error Compiling fragment shader");
@@ -32,6 +33,7 @@ void Shader::InitShader(const char* vertexshader, const char* fragmentshader){
   m_programId = glCreateProgram();
   glAttachShader(m_programId, vshaderId);
   glAttachShader(m_programId, fshaderId);
+
   glLinkProgram(m_programId);
 
   GLint status;
@@ -50,7 +52,7 @@ void Shader::InitShader(const char* vertexshader, const char* fragmentshader){
 
 }
 
-std::string Shader::LoadFromFile(const char* filename){
+std::string Shader::LoadFromFile(std::string filename){
   std::string buffer;
   std::ifstream infile(filename);
   if(!infile){

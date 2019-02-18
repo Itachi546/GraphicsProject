@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/Itachi/Desktop/GraphicsProject/src/Input.cpp" "C:/Users/Itachi/Desktop/GraphicsProject/build/CMakeFiles/out.dir/src/Input.cpp.obj"
   "C:/Users/Itachi/Desktop/GraphicsProject/src/Main.cpp" "C:/Users/Itachi/Desktop/GraphicsProject/build/CMakeFiles/out.dir/src/Main.cpp.obj"
   "C:/Users/Itachi/Desktop/GraphicsProject/src/Shader.cpp" "C:/Users/Itachi/Desktop/GraphicsProject/build/CMakeFiles/out.dir/src/Shader.cpp.obj"
+  "C:/Users/Itachi/Desktop/GraphicsProject/src/Time.cpp" "C:/Users/Itachi/Desktop/GraphicsProject/build/CMakeFiles/out.dir/src/Time.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "MSVC")
 

@@ -13,6 +13,7 @@ CMakeFiles\out.dir\src\Grid.cpp.obj: ..\src\Input.h
 CMakeFiles\out.dir\src\Grid.cpp.obj: ..\src\Math\vec.h
 CMakeFiles\out.dir\src\Grid.cpp.obj: ..\src\Shader.h
 CMakeFiles\out.dir\src\Grid.cpp.obj: ..\src\Texture.h
+CMakeFiles\out.dir\src\Grid.cpp.obj: ..\src\Time.h
 
 CMakeFiles\out.dir\src\Input.cpp.obj: ..\src\Input.cpp
 CMakeFiles\out.dir\src\Input.cpp.obj: ..\src\Input.h
@@ -28,10 +29,14 @@ CMakeFiles\out.dir\src\Main.cpp.obj: ..\src\Main.cpp
 CMakeFiles\out.dir\src\Main.cpp.obj: ..\src\Math\mat.h
 CMakeFiles\out.dir\src\Main.cpp.obj: ..\src\Math\vec.h
 CMakeFiles\out.dir\src\Main.cpp.obj: ..\src\Shader.h
+CMakeFiles\out.dir\src\Main.cpp.obj: ..\src\Time.h
 
 CMakeFiles\out.dir\src\Shader.cpp.obj: ..\3rdParty\include\GL\glew.h
 CMakeFiles\out.dir\src\Shader.cpp.obj: ..\src\Math\mat.h
 CMakeFiles\out.dir\src\Shader.cpp.obj: ..\src\Math\vec.h
 CMakeFiles\out.dir\src\Shader.cpp.obj: ..\src\Shader.cpp
 CMakeFiles\out.dir\src\Shader.cpp.obj: ..\src\Shader.h
+
+CMakeFiles\out.dir\src\Time.cpp.obj: ..\src\Time.cpp
+CMakeFiles\out.dir\src\Time.cpp.obj: ..\src\Time.h
 

@@ -14,13 +14,13 @@ class Shader{
  private:
   GLuint m_programId;
   
-  std::string LoadFromFile(const char* filename);
+  std::string LoadFromFile(std::string filename);
   bool CheckStatus(GLuint id, std::string filename);
 public:
   Shader(){}
   ~Shader(){}
 
-  void InitShader(const char* vertexshader, const char* fragmentshader);
+  void InitShader(std::string vertexshader, std::string fragmentshader);
   void Use();
   void Unuse();
 
