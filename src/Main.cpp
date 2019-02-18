@@ -49,8 +49,8 @@ int main(){
   if(!glewInit()) glewInit();
   glClearColor(0.5f, 0.6f, 1.0f, 0.0f);
   glEnable(GL_DEPTH_TEST);
-  //  glEnable(GL_CULL_FACE);
-  //  glCullFace(GL_CW);
+  //glEnable(GL_CULL_FACE);
+  // glCullFace(GL_CW);
 
   Camera camera;
   camera.Init(vec3(0.0f, 50.0f, - 3.0f), vec3(0.0f, 0.0f, 1.0f));

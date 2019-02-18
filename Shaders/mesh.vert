@@ -11,6 +11,8 @@ uniform mat4 view;
 out vec2 TexCoord;
 out vec3 Normal;
 
+//exponential fog
+//visibility = pow(exp(-distance * fogDensity, gradient))
 out float visibility;
 const float fogDensity = 0.007;
 const float gradient = 1.5;

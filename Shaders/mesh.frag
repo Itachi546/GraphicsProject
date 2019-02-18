@@ -28,7 +28,7 @@ void main(){
      vec3 color = diffuse * (grassColor + dirtColor + rockColor);
 
      color = mix(vec3(0.5, 0.6, 1.0), color, visibility);
-
+     color = pow(color, vec3(1/2.2f));
      fragColor = vec4(color, 1.0f);
      
 }

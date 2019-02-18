@@ -18,5 +18,6 @@ void main() {
      float diffuse = max(dot(n, l), 0.1f);
      vec3 color = diffuse * textureColor.rgb;
      color = mix(skyColor, color, visibility);
+     color = pow(color, vec3(1/2.2f));
     finalColor = vec4(color, textureColor.a);
 }

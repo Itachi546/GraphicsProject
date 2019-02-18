@@ -41,5 +41,6 @@ void main(){
 
      if(color.a < 0.5) discard;
      color.rgb =  mix(skyColor, color.rgb, visibility);
+     color.rgb = pow(color.rgb, vec3(1/ 2.2f));
      finalColor = color;
 }
