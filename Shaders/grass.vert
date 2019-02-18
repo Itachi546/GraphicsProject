@@ -17,18 +17,19 @@ void main(){
 	  0, 0, 1, 0,
 	  translation.x, translation.y +  model[1][1] * 0.5, translation.z, 1
      );
-     mat4 m = translate * model;
 
+     mat4 m = translate * model;
      vec3 right = vec3(view[0][0], view[1][0], view[2][0]);
-     vec3 up = vec3(view[0][1], view[1][1], view[2][1]);
-     up = vec3(0, 1, 0);
+     vec3 up = vec3(0, 1, 0);
 
      vec3 pos  =  position.x * right + position.y * up;
      if(position.y > 0.1f){
-         pos.x += sin(time * 0.0008 + float(gl_InstanceID * 10.0f)) * 0.2f;
+         pos.x += sin(time * 10.0f+ float(gl_InstanceID * 10.0f)) * 0.2f;
+        // pos.x += sin(time * 0.0008 + 10.0f) * 0.2f;
      }    
 
      vec4 worldPos = projection * view  * m * vec4(pos,   1.0f);
+
      gl_Position = worldPos;
 
      WorldPos = translation.xz;

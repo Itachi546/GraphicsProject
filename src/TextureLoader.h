@@ -11,7 +11,7 @@ struct TextureData{
   int numChannel;
 };
 
-class Texture{
+class TextureLoader{
  public:
   static TextureData LoadHeightMap(const char* filename){
     TextureData data;

@@ -3,10 +3,11 @@
 
 class Time{
   static double m_elapsedTime;
-  //static double m_frameTime = {};
+  static double m_frameTime;
  public:
   static void IncreaseElapsedTime(double delta);
   static double GetElapsedTime();
+  static double GetDeltaTime();
 };
 
 #endif

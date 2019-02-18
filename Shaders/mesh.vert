@@ -11,8 +11,15 @@ uniform mat4 view;
 out vec2 TexCoord;
 out vec3 Normal;
 
+out float visibility;
+const float fogDensity = 0.007;
+const float gradient = 1.5;
+
 void main(){
-     gl_Position = projection * view *  model * vec4(position.x, position.y  , position.z, 1.0);
+     vec4 posRelativeToCam = view *  model * vec4(position.x, position.y  , position.z, 1.0);
+     gl_Position = projection * posRelativeToCam;
      Normal = normal;
      TexCoord = texCoord;
+    float distance = length(posRelativeToCam.xyz);
+    visibility = clamp(pow(exp(-distance * fogDensity), gradient), 0.0f, 1.0f);
 }

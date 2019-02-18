@@ -124,6 +124,87 @@ out\fast:
 	$(MAKE) -f CMakeFiles\out.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\out.dir\build
 .PHONY : out\fast
 
+3rdParty\include\imgui\imgui.obj: 3rdParty\include\imgui\imgui.cpp.obj
+
+.PHONY : 3rdParty\include\imgui\imgui.obj
+
+# target to build an object file
+3rdParty\include\imgui\imgui.cpp.obj:
+	$(MAKE) -f CMakeFiles\out.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\out.dir\3rdParty\include\imgui\imgui.cpp.obj
+.PHONY : 3rdParty\include\imgui\imgui.cpp.obj
+
+3rdParty\include\imgui\imgui.i: 3rdParty\include\imgui\imgui.cpp.i
+
+.PHONY : 3rdParty\include\imgui\imgui.i
+
+# target to preprocess a source file
+3rdParty\include\imgui\imgui.cpp.i:
+	$(MAKE) -f CMakeFiles\out.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\out.dir\3rdParty\include\imgui\imgui.cpp.i
+.PHONY : 3rdParty\include\imgui\imgui.cpp.i
+
+3rdParty\include\imgui\imgui.s: 3rdParty\include\imgui\imgui.cpp.s
+
+.PHONY : 3rdParty\include\imgui\imgui.s
+
+# target to generate assembly for a file
+3rdParty\include\imgui\imgui.cpp.s:
+	$(MAKE) -f CMakeFiles\out.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\out.dir\3rdParty\include\imgui\imgui.cpp.s
+.PHONY : 3rdParty\include\imgui\imgui.cpp.s
+
+3rdParty\include\imgui\imgui_demo.obj: 3rdParty\include\imgui\imgui_demo.cpp.obj
+
+.PHONY : 3rdParty\include\imgui\imgui_demo.obj
+
+# target to build an object file
+3rdParty\include\imgui\imgui_demo.cpp.obj:
+	$(MAKE) -f CMakeFiles\out.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\out.dir\3rdParty\include\imgui\imgui_demo.cpp.obj
+.PHONY : 3rdParty\include\imgui\imgui_demo.cpp.obj
+
+3rdParty\include\imgui\imgui_demo.i: 3rdParty\include\imgui\imgui_demo.cpp.i
+
+.PHONY : 3rdParty\include\imgui\imgui_demo.i
+
+# target to preprocess a source file
+3rdParty\include\imgui\imgui_demo.cpp.i:
+	$(MAKE) -f CMakeFiles\out.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\out.dir\3rdParty\include\imgui\imgui_demo.cpp.i
+.PHONY : 3rdParty\include\imgui\imgui_demo.cpp.i
+
+3rdParty\include\imgui\imgui_demo.s: 3rdParty\include\imgui\imgui_demo.cpp.s
+
+.PHONY : 3rdParty\include\imgui\imgui_demo.s
+
+# target to generate assembly for a file
+3rdParty\include\imgui\imgui_demo.cpp.s:
+	$(MAKE) -f CMakeFiles\out.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\out.dir\3rdParty\include\imgui\imgui_demo.cpp.s
+.PHONY : 3rdParty\include\imgui\imgui_demo.cpp.s
+
+3rdParty\include\imgui\imgui_draw.obj: 3rdParty\include\imgui\imgui_draw.cpp.obj
+
+.PHONY : 3rdParty\include\imgui\imgui_draw.obj
+
+# target to build an object file
+3rdParty\include\imgui\imgui_draw.cpp.obj:
+	$(MAKE) -f CMakeFiles\out.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\out.dir\3rdParty\include\imgui\imgui_draw.cpp.obj
+.PHONY : 3rdParty\include\imgui\imgui_draw.cpp.obj
+
+3rdParty\include\imgui\imgui_draw.i: 3rdParty\include\imgui\imgui_draw.cpp.i
+
+.PHONY : 3rdParty\include\imgui\imgui_draw.i
+
+# target to preprocess a source file
+3rdParty\include\imgui\imgui_draw.cpp.i:
+	$(MAKE) -f CMakeFiles\out.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\out.dir\3rdParty\include\imgui\imgui_draw.cpp.i
+.PHONY : 3rdParty\include\imgui\imgui_draw.cpp.i
+
+3rdParty\include\imgui\imgui_draw.s: 3rdParty\include\imgui\imgui_draw.cpp.s
+
+.PHONY : 3rdParty\include\imgui\imgui_draw.s
+
+# target to generate assembly for a file
+3rdParty\include\imgui\imgui_draw.cpp.s:
+	$(MAKE) -f CMakeFiles\out.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\out.dir\3rdParty\include\imgui\imgui_draw.cpp.s
+.PHONY : 3rdParty\include\imgui\imgui_draw.cpp.s
+
 src\Grid.obj: src\Grid.cpp.obj
 
 .PHONY : src\Grid.obj
@@ -205,6 +286,60 @@ src\Main.cpp.s:
 	$(MAKE) -f CMakeFiles\out.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\out.dir\src\Main.cpp.s
 .PHONY : src\Main.cpp.s
 
+src\Mesh.obj: src\Mesh.cpp.obj
+
+.PHONY : src\Mesh.obj
+
+# target to build an object file
+src\Mesh.cpp.obj:
+	$(MAKE) -f CMakeFiles\out.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\out.dir\src\Mesh.cpp.obj
+.PHONY : src\Mesh.cpp.obj
+
+src\Mesh.i: src\Mesh.cpp.i
+
+.PHONY : src\Mesh.i
+
+# target to preprocess a source file
+src\Mesh.cpp.i:
+	$(MAKE) -f CMakeFiles\out.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\out.dir\src\Mesh.cpp.i
+.PHONY : src\Mesh.cpp.i
+
+src\Mesh.s: src\Mesh.cpp.s
+
+.PHONY : src\Mesh.s
+
+# target to generate assembly for a file
+src\Mesh.cpp.s:
+	$(MAKE) -f CMakeFiles\out.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\out.dir\src\Mesh.cpp.s
+.PHONY : src\Mesh.cpp.s
+
+src\Model.obj: src\Model.cpp.obj
+
+.PHONY : src\Model.obj
+
+# target to build an object file
+src\Model.cpp.obj:
+	$(MAKE) -f CMakeFiles\out.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\out.dir\src\Model.cpp.obj
+.PHONY : src\Model.cpp.obj
+
+src\Model.i: src\Model.cpp.i
+
+.PHONY : src\Model.i
+
+# target to preprocess a source file
+src\Model.cpp.i:
+	$(MAKE) -f CMakeFiles\out.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\out.dir\src\Model.cpp.i
+.PHONY : src\Model.cpp.i
+
+src\Model.s: src\Model.cpp.s
+
+.PHONY : src\Model.s
+
+# target to generate assembly for a file
+src\Model.cpp.s:
+	$(MAKE) -f CMakeFiles\out.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\out.dir\src\Model.cpp.s
+.PHONY : src\Model.cpp.s
+
 src\Shader.obj: src\Shader.cpp.obj
 
 .PHONY : src\Shader.obj
@@ -268,6 +403,15 @@ help:
 	@echo ... out
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... 3rdParty/include/imgui/imgui.obj
+	@echo ... 3rdParty/include/imgui/imgui.i
+	@echo ... 3rdParty/include/imgui/imgui.s
+	@echo ... 3rdParty/include/imgui/imgui_demo.obj
+	@echo ... 3rdParty/include/imgui/imgui_demo.i
+	@echo ... 3rdParty/include/imgui/imgui_demo.s
+	@echo ... 3rdParty/include/imgui/imgui_draw.obj
+	@echo ... 3rdParty/include/imgui/imgui_draw.i
+	@echo ... 3rdParty/include/imgui/imgui_draw.s
 	@echo ... src/Grid.obj
 	@echo ... src/Grid.i
 	@echo ... src/Grid.s
@@ -277,6 +421,12 @@ help:
 	@echo ... src/Main.obj
 	@echo ... src/Main.i
 	@echo ... src/Main.s
+	@echo ... src/Mesh.obj
+	@echo ... src/Mesh.i
+	@echo ... src/Mesh.s
+	@echo ... src/Model.obj
+	@echo ... src/Model.i
+	@echo ... src/Model.s
 	@echo ... src/Shader.obj
 	@echo ... src/Shader.i
 	@echo ... src/Shader.s

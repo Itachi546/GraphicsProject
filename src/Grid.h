@@ -3,6 +3,9 @@
 
 #include "Shader.h"
 #include "Math/vec.h"
+#include "Model.h"
+
+#include <vector>
 
 struct mat4;
 struct vec3;
@@ -31,7 +34,7 @@ class Grid{
   void Destroy();
   void Render(Camera& camera);
   float GetHeight(int i, int j);
-  //  float GetHeight(float x, float z);
+  float GetHeight(float x, float z);
   unsigned int m_vao;
   unsigned int m_grassVAO;
   unsigned int m_numIndices;
@@ -39,24 +42,24 @@ class Grid{
  private:
   void InitBuffers();
   void LoadHeightMap(const char* filename);
-
-
   //Heightmap data
   int m_terrainWidth;
   int m_terrainHeight;
   float heightScale, gridScale;
-  Shader shader, grassShader;
+  Shader shader, grassShader, modelShader;
   unsigned int m_offset;
-
+  float m_halfDims;
   //grass data
   unsigned int m_vbo, m_ebo;
-  unsigned int m_grassVBO, m_grassEBO, m_grassPBO;
-  unsigned int m_numGrassVertices, m_numGrass;
   unsigned int m_numVertices;
   unsigned char* m_heightMap;
-
+  std::vector<float> m_height;
   unsigned int grassPackTexture;
   unsigned int splatMap, grassTexture, dirtTexture, rockTexture;
+  unsigned int fernTexture, flowerTexture, groundGrassTexture;
+  Model treeModel, grassModel;
+  std::vector<vec3> treePos;
+  std::vector<vec3> grassPos;
 };
 
 #endif

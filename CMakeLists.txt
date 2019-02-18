@@ -10,11 +10,16 @@ link_directories(${PROJECT_SOURCE_DIR}/3rdParty/lib)
 
 add_executable(
 	out
+	3rdParty/include/imgui/imgui.cpp
+	3rdParty/include/imgui/imgui_demo.cpp		
+	3rdParty/include/imgui/imgui_draw.cpp		
 	src/Shader.cpp
 	src/Input.cpp
+	src/Mesh.cpp
+	src/Model.cpp
 	src/Grid.cpp
 	src/Time.cpp
 	src/Main.cpp
 )
 
-target_link_libraries(out SOIL glew32 opengl32 glfw3)
+target_link_libraries(out SOIL glew32 opengl32 glfw3 assimp)

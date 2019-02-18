@@ -4,6 +4,7 @@
 #include "vec.h"
 #include "mat.h"
 #include "Input.h"
+#include "Time.h"
 #include <GLFW/glfw3.h>
 
 class Camera{
@@ -17,7 +18,7 @@ class Camera{
   const float SPEED = 0.1f;
  public:
   Camera(){
-    position = vec3(0.0f, 5.0f, -1.0f);
+    position = vec3(0.0f, 2.0f, -1.0f);
     look = vec3(0.0f, 0.0f, 1.0f);
     up = vec3(0, 1, 0);
     rotation = vec3(0.0f);
@@ -31,7 +32,8 @@ class Camera{
   }
 
   void SetPosition(vec3 p){
-    this->position = p;
+    float deltaTime = float(Time::GetDeltaTime());
+    this->position = (1 - deltaTime) * position + deltaTime * p;
     Update();
   }
 

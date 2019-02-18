@@ -4,11 +4,13 @@ in vec3 Normal;
 
 out vec4 fragColor;
 in vec2 TexCoord;
+in float visibility;
 
 uniform sampler2D splatmap;
 uniform sampler2D grassTexture;
 uniform sampler2D rockTexture;
 uniform sampler2D dirtTexture;
+
 
 float tileSize = 10.0f;
 void main(){
@@ -24,5 +26,9 @@ void main(){
      float diffuse = max(dot(n, l), 0.1f);
 
      vec3 color = diffuse * (grassColor + dirtColor + rockColor);
+
+     color = mix(vec3(0.5, 0.6, 1.0), color, visibility);
+
      fragColor = vec4(color, 1.0f);
+     
 }
