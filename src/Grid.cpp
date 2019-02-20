@@ -33,7 +33,6 @@ float Grid::GetHeight(float x, float z){
 
   if(xIndex < 0 || zIndex < 0 || xIndex >= m_numVertices-1 || zIndex >= m_numVertices-1 ) return 5.0f;
   float y = m_height[zIndex * m_numVertices + xIndex];
-
   return y;
 }
 
@@ -185,7 +184,7 @@ void Grid::Init(){
   InitBuffers();
 
   //model
-  //treeModel.SetInstances(treePos);
+  treeModel.SetInstances(treePos);
   treeModel.LoadModel("../Assets/Models/tree/pine.obj");
 
   grassModel.SetInstances(grassPos);
@@ -218,14 +217,20 @@ void Grid::Destroy(){
   glDeleteBuffers(1, &m_ebo);
 }
 
+void Grid::LoadUniforms(Shader& shader, Camera& camera){
+  //call after binding shader
+  shader.LoadMat("projection", camera.GetProjection());
+  shader.LoadMat("view", camera.GetViewMatrix());
+  shader.LoadFloat("fogDensity", fogDensity);
+  shader.LoadFloat("fogGradient", fogGradient);  
+}
+
 void Grid::Render(Camera& camera){
 
   shader.Use();
-  shader.LoadMat("projection", camera.GetProjection());
+  LoadUniforms(shader, camera);
   shader.LoadMat("model", mat4());
-  shader.LoadMat("view", camera.GetViewMatrix());
   glBindVertexArray(m_vao);
-
   glActiveTexture(GL_TEXTURE0);
   glBindTexture(GL_TEXTURE_2D, splatMap);
 
@@ -247,9 +252,8 @@ void Grid::Render(Camera& camera){
 
   glEnable(GL_BLEND);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-  grassShader.LoadMat("projection", camera.GetProjection());
+  LoadUniforms(grassShader, camera);
   grassShader.LoadMat("model", mat4::scale(vec3(0.5f)));
-  grassShader.LoadMat("view", camera.GetViewMatrix());
   grassShader.LoadFloat("time", float(Time::GetElapsedTime()));
 
   glActiveTexture(GL_TEXTURE0);
@@ -267,14 +271,11 @@ void Grid::Render(Camera& camera){
   grassShader.Unuse();
 
   modelShader.Use();
-  modelShader.LoadMat("projection", camera.GetProjection());
-  modelShader.LoadMat("view", camera.GetViewMatrix());
-  
+  LoadUniforms(modelShader, camera);
   mat4 translate = mat4::translate(vec3(0.0f, 0.0f, 0.0f));
   modelShader.LoadMat("model", mat4::scale(vec3(1.0f)));
   treeModel.Draw(modelShader);
   modelShader.Unuse();
-
   glDisable(GL_BLEND);
 }
 

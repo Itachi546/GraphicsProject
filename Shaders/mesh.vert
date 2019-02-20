@@ -14,8 +14,9 @@ out vec3 Normal;
 //exponential fog
 //visibility = pow(exp(-distance * fogDensity, gradient))
 out float visibility;
-const float fogDensity = 0.007;
-const float gradient = 1.5;
+
+uniform float fogDensity;
+uniform float fogGradient;
 
 void main(){
      vec4 posRelativeToCam = view *  model * vec4(position.x, position.y  , position.z, 1.0);
@@ -23,5 +24,5 @@ void main(){
      Normal = normal;
      TexCoord = texCoord;
     float distance = length(posRelativeToCam.xyz);
-    visibility = clamp(pow(exp(-distance * fogDensity), gradient), 0.0f, 1.0f);
+    visibility = clamp(pow(exp(-distance * fogDensity), fogGradient), 0.0f, 1.0f);
 }

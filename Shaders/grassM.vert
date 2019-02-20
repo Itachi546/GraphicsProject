@@ -11,8 +11,8 @@ out vec2  TexCoord;
 out vec2 WorldPos;
 
 out float visibility;
-const float fogDensity = 0.007;
-const float gradient = 1.5;
+uniform float fogDensity;
+uniform float fogGradient;
 
 void main(){
      mat4 translate = mat4(
@@ -37,5 +37,5 @@ void main(){
      WorldPos = worldPos.xz;
 
    float distance = length(posRelativeToCam.xyz);
-   visibility = clamp(pow(exp(-distance * fogDensity), gradient), 0.0f, 1.0f);
+   visibility = clamp(pow(exp(-distance * fogDensity), fogGradient), 0.0f, 1.0f);
   }

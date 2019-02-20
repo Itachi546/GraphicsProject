@@ -8,6 +8,8 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include "imgui/imgui.h"
+
 #include <iostream>
 
 int g_windowWidth = 800;
@@ -57,7 +59,7 @@ int main(){
   // glCullFace(GL_CW);
 
   Camera camera;
-  camera.Init(vec3(100.0f, 100.0f, 100.0f), vec3(0.0f, 0.0f, 1.0f));
+  camera.Init(vec3(100.0f, 40.0f, 100.0f), vec3(0.0f, 0.0f, 1.0f));
 
   Grid grid;
   grid.Init();

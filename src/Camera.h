@@ -39,7 +39,7 @@ class Camera{
   }
 
   void IncreaseRotation(vec3 delta){
-    rotation += delta * Time::GetDeltaTime();
+    rotation += delta * float(Time::GetDeltaTime());
     Update();
   }
 

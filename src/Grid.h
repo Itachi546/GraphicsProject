@@ -35,13 +35,18 @@ class Grid{
   void Render(Camera& camera);
   float GetHeight(int i, int j);
   float GetHeight(float x, float z);
+  float fogDensity = 0.007f;
+  float fogGradient = 1.5f;
+  
+ private:
+  void InitBuffers();
+  void LoadHeightMap(const char* filename);
+  void LoadUniforms(Shader& shader, Camera& camera);
+
   unsigned int m_vao;
   unsigned int m_grassVAO;
   unsigned int m_numIndices;
 
- private:
-  void InitBuffers();
-  void LoadHeightMap(const char* filename);
   //Heightmap data
   int m_terrainWidth;
   int m_terrainHeight;

@@ -99,6 +99,8 @@ CMakeFiles\out.dir\src\Main.cpp.obj: ..\3rdParty\include\assimp\vector2.h
 CMakeFiles\out.dir\src\Main.cpp.obj: ..\3rdParty\include\assimp\vector2.inl
 CMakeFiles\out.dir\src\Main.cpp.obj: ..\3rdParty\include\assimp\vector3.h
 CMakeFiles\out.dir\src\Main.cpp.obj: ..\3rdParty\include\assimp\vector3.inl
+CMakeFiles\out.dir\src\Main.cpp.obj: ..\3rdParty\include\imgui\imconfig.h
+CMakeFiles\out.dir\src\Main.cpp.obj: ..\3rdParty\include\imgui\imgui.h
 CMakeFiles\out.dir\src\Main.cpp.obj: ..\src\Math\mat.h
 CMakeFiles\out.dir\src\Main.cpp.obj: ..\src\Math\vec.h
 CMakeFiles\out.dir\src\Main.cpp.obj: ..\src\Camera.h
