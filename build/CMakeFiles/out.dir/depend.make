@@ -64,6 +64,7 @@ CMakeFiles\out.dir\src\Grid.cpp.obj: ..\src\Shader.h
 CMakeFiles\out.dir\src\Grid.cpp.obj: ..\src\TextureLoader.h
 CMakeFiles\out.dir\src\Grid.cpp.obj: ..\src\Time.h
 
+CMakeFiles\out.dir\src\Input.cpp.obj: ..\src\Math\vec.h
 CMakeFiles\out.dir\src\Input.cpp.obj: ..\src\Input.cpp
 CMakeFiles\out.dir\src\Input.cpp.obj: ..\src\Input.h
 

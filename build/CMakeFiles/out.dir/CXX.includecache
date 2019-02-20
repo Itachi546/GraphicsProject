@@ -62,8 +62,6 @@ GL/glext.h
 GL/glu.h
 -
 
-../3rdParty/include/SOIL/SOIL.h
-
 ../3rdParty/include/assimp/./Compiler/poppack1.h
 
 ../3rdParty/include/assimp/./Compiler/pushpack1.h
@@ -332,24 +330,6 @@ C:/Users/Itachi/Desktop/GraphicsProject/src/Time.h
 GLFW/glfw3.h
 -
 
-C:/Users/Itachi/Desktop/GraphicsProject/src/Grid.cpp
-Grid.h
-C:/Users/Itachi/Desktop/GraphicsProject/src/Grid.h
-Camera.h
-C:/Users/Itachi/Desktop/GraphicsProject/src/Camera.h
-TextureLoader.h
-C:/Users/Itachi/Desktop/GraphicsProject/src/TextureLoader.h
-mat.h
-C:/Users/Itachi/Desktop/GraphicsProject/src/mat.h
-Time.h
-C:/Users/Itachi/Desktop/GraphicsProject/src/Time.h
-GL/glew.h
--
-vector
--
-fstream
--
-
 C:/Users/Itachi/Desktop/GraphicsProject/src/Grid.h
 Shader.h
 C:/Users/Itachi/Desktop/GraphicsProject/src/Shader.h
@@ -422,12 +402,6 @@ C:/Users/Itachi/Desktop/GraphicsProject/src/Shader.h
 GL/glew.h
 -
 string
--
-
-C:/Users/Itachi/Desktop/GraphicsProject/src/TextureLoader.h
-iostream
--
-SOIL/SOIL.h
 -
 
 C:/Users/Itachi/Desktop/GraphicsProject/src/Time.h

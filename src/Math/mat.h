@@ -145,7 +145,7 @@ struct mat4{
     mat4 y = rotateY(angle.y);
     mat4 z = rotateZ(angle.z);
 
-    return y * z * x;
+    return z * x * y;
   }
 
   //scale

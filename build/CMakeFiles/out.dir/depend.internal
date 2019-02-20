@@ -65,6 +65,7 @@ CMakeFiles/out.dir/src/Grid.cpp.obj
  C:/Users/Itachi/Desktop/GraphicsProject/src/TextureLoader.h
  C:/Users/Itachi/Desktop/GraphicsProject/src/Time.h
 CMakeFiles/out.dir/src/Input.cpp.obj
+ ../src/Math/vec.h
  C:/Users/Itachi/Desktop/GraphicsProject/src/Input.cpp
  C:/Users/Itachi/Desktop/GraphicsProject/src/Input.h
 CMakeFiles/out.dir/src/Main.cpp.obj

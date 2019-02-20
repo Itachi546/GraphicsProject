@@ -143,8 +143,6 @@ void Grid::Init(){
   shader.InitShader("../Shaders/mesh.vert", "../Shaders/mesh.frag");
   grassShader.InitShader("../Shaders/grassM.vert", "../Shaders/grass.frag");
 
-
-
   //Load config file
   std::ifstream infile("../Assets/terrain.txt");
   if(!infile){
@@ -187,7 +185,7 @@ void Grid::Init(){
   InitBuffers();
 
   //model
-  treeModel.SetInstances(treePos);
+  //treeModel.SetInstances(treePos);
   treeModel.LoadModel("../Assets/Models/tree/pine.obj");
 
   grassModel.SetInstances(grassPos);

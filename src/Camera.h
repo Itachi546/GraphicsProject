@@ -11,11 +11,12 @@ class Camera{
  private:
   vec3 look;
   vec3 up;
+  vec3 target;
   vec3 position;
   vec3 rotation;
   mat4 projection;
   mat4 view;
-  const float SPEED = 0.1f;
+  const float SPEED = 0.5f;
  public:
   Camera(){
     position = vec3(0.0f, 2.0f, -1.0f);
@@ -38,7 +39,7 @@ class Camera{
   }
 
   void IncreaseRotation(vec3 delta){
-    rotation += delta;
+    rotation += delta * Time::GetDeltaTime();
     Update();
   }
 
@@ -74,7 +75,7 @@ class Camera{
     mat4 rotate = mat4::rotate(rotation);
     vec4 u = rotate * vec4(vec3(0, 1, 0), 0.0f);
     up = vec3::normalize(vec3(u.x, u.y, u.z));
-    vec4 f = rotate * vec4(0, 0, 1, 0);
+    vec4 f = rotate * vec4(vec3(0.0f, 0.0f, 1.0f), 0);
     look = vec3::normalize(vec3(f.x, f.y, f.z));
     vec3 target = position + look;
     view = mat4::lookAt(position, target, up);
